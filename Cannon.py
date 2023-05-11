@@ -1,12 +1,4 @@
-"""Cannon, hitting targets with projectiles.
-
-Exercises
-
-1. Keep score by counting target hits.
-2. Vary the effect of gravity.
-3. Apply gravity to the targets.
-4. Change the speed of the ball.
-"""
+"""Actividad 4: Cannon"""
 
 from random import randrange
 from turtle import *
@@ -23,8 +15,8 @@ def tap(x, y):
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        speed.x = (x + 200) / 16
+        speed.y = (y + 200) / 16
 
 
 def inside(xy):
@@ -60,7 +52,7 @@ def move():
         if not inside(target):
             target.x = 200
             target.y = randrange(-150, 150)
-        target.x -= 0.5
+        target.x -= 1.5
 
     if inside(ball):
         speed.y -= 0.35
