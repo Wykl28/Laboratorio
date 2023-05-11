@@ -51,7 +51,7 @@ tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ]
 
-"""Funcion que dibuja square usando path en (x, y)."""
+"""Funcion que dibuja square usando path en (x, y)"""
 def square(x, y):
     path.up()
     path.goto(x, y)
