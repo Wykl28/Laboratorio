@@ -51,7 +51,7 @@ tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ]
 
-"""Funcion que dibuja square usando path en (x, y)"""
+"""Función que dibuja square usando path en (x, y)"""
 def square(x, y):
     path.up()
     path.goto(x, y)
@@ -64,14 +64,14 @@ def square(x, y):
 
     path.end_fill()
 
-"""Funcion que regresa offset de un point en los tiles"""
+"""Función que regresa offset de un point en los tiles"""
 def offset(point):
     x = (floor(point.x, 20) + 200) / 20
     y = (180 - floor(point.y, 20)) / 20
     index = int(x + y * 20)
     return index
 
-"""Funcion que regresa True si point es valido en los tiles"""
+"""Función que regresa True si point es válido en los tiles"""
 def valid(point):
     index = offset(point)
 
@@ -85,7 +85,7 @@ def valid(point):
 
     return point.x % 20 == 0 or point.y % 20 == 0
 
-"""Funcion que dibuja el mundo usando path."""
+"""Función que dibuja el mundo usando path."""
 def world():
     bgcolor('black')
     path.color('blue')
@@ -103,7 +103,7 @@ def world():
                 path.goto(x + 10, y + 10)
                 path.dot(2, 'white')
 
-"""Funcion que mueve el pacman y todos los fantasmas."""
+"""Función que mueve el pacman y todos los fantasmas."""
 def move():
     writer.undo()
     writer.write(state['score'])
@@ -159,7 +159,7 @@ def move():
 
     ontimer(move, 100)
 
-"""Funcion que cambia el aim del pacman si es posible."""
+"""Función que cambia el aim del pacman si es posible."""
 def change(x, y):
     if valid(pacman + vector(x, y)):
         aim.x = x
