@@ -94,7 +94,7 @@ def draw():
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
     up()
-    goto(180, -180)
+    goto(220, -220)
     color('red')
     write(f'Taps: {taps}', font=('Arial', 16, 'normal',))
 
@@ -103,7 +103,7 @@ def draw():
 
 
 shuffle(tiles)
-setup(600, 550, 370, 0)
+setup(650, 650, 370, 0)
 addshape(car)
 hideturtle()
 tracer(False)
