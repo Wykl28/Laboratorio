@@ -24,7 +24,6 @@ def inside(xy):
 
 """Funcion para dibujar la pelota y los objetivos"""
 def draw():
-    """Draw ball and targets."""
     clear()
 
     for target in targets:
@@ -41,7 +40,6 @@ def draw():
 
 """Función para mover la pelota y los objetivos"""
 def move():
-    """Move ball and targets."""
     if randrange(40) == 0:
         # Cada cierto tiempo se agrega un nuevo objetivo
         y = randrange(-150, 150)

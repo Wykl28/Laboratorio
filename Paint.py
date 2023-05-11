@@ -13,7 +13,6 @@ def line(start, end):
 
 """Funcion que dibuja el cuadrado"""
 def square(start, end):
-    """Draw square from start to end."""
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
@@ -28,8 +27,6 @@ def square(start, end):
 
 """Funcion que dibuja el circulo"""
 def cir(start, end):
-    """Draw circle from start to end."""
-    #t = turtle.Turtle()
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
@@ -40,7 +37,6 @@ def cir(start, end):
 
 """Funcion que dibuja el rectangulo"""
 def rectangle(start, end):
-    """Draw rectangle from start to end."""
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
@@ -55,7 +51,6 @@ def rectangle(start, end):
 
 """Funcion que dibuja el triangulo"""
 def triangle(start, end):
-    """Draw triangle from start to end."""
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
@@ -68,7 +63,6 @@ def triangle(start, end):
 
 """Funcion que agarra las coordenadas x e y"""
 def tap(x, y):
-    """Store starting point or draw shape."""
     start = state['start']
 
     if start is None:
@@ -81,7 +75,6 @@ def tap(x, y):
 
 """Funcion almacena todo"""
 def store(key, value):
-    """Store value in state at key."""
     state[key] = value
 
 

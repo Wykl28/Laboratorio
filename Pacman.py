@@ -1,4 +1,4 @@
-"""Actividad 3: Packman"""
+"""Actividad 3: Pacman"""
 
 from random import choice #importamos choice de random
 from turtle import * #Importamos turtle
@@ -51,7 +51,7 @@ tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ]
 
-"""Function that draws square using path at (x, y)."""
+"""Funcion que dibuja square usando path en (x, y)."""
 def square(x, y):
     path.up()
     path.goto(x, y)
@@ -64,14 +64,14 @@ def square(x, y):
 
     path.end_fill()
 
-"""Function that returns offset of point in tiles."""
+"""Funcion que regresa offset de un point en los tiles."""
 def offset(point):
     x = (floor(point.x, 20) + 200) / 20
     y = (180 - floor(point.y, 20)) / 20
     index = int(x + y * 20)
     return index
 
-"""Function that returns True if point is valid in tiles."""
+"""Funcion que regresa True si point es valido en los tiles"""
 def valid(point):
     index = offset(point)
 
@@ -85,7 +85,7 @@ def valid(point):
 
     return point.x % 20 == 0 or point.y % 20 == 0
 
-"""Funcion que dibuja el mundousando path."""
+"""Funcion que dibuja el mundo usando path."""
 def world():
     bgcolor('black')
     path.color('blue')

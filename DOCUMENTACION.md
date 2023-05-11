@@ -18,7 +18,7 @@ Snake:
     1. Hicimos que la comida se mueva al azar un paso a la vez y sin salirse de la ventana.
     2. Hicimos que la vibora y la comida tengan colores diferentes entr sí y que ademas estos cambien cada vez que se corre el juego.
 
-Packman:
+Pacman:
     1. Hicimos mas listos los fantasmas, hicimos que en lugar de que se movieran en una direccion aleatoria cuando toparan con la pared, ahora se mueven hacia la distancia mas corta, ya sea en x o en y.
     2. Cambiamos el tablero.
     3. Hicimos que los fantasmas fueran mas rapido.
