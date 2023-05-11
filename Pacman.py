@@ -133,12 +133,12 @@ def move():
         else:
             dx, dy = pacman.x - point.x, pacman.y - point.y
             optionsx = [
-                vector(5, 0),
-                vector(-5, 0),
+                vector(10, 0),
+                vector(-10, 0),
             ]
             optionsy = [
-                vector(0, 5),
-                vector(0, -5),
+                vector(0, 10),
+                vector(0, -10),
             ]
             if abs(dx)>abs(dy):
                 plan = choice(optionsx)
