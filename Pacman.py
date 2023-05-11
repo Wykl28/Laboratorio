@@ -1,17 +1,7 @@
-"""Pacman, classic arcade game.
-
-Exercises
-
-1. Change the board.
-2. Change the number of ghosts.
-3. Change where pacman starts.
-4. Make the ghosts faster/slower.
-5. Make the ghosts smarter.
-"""
+"""Actividad 3: Packman"""
 
 from random import choice
 from turtle import *
-
 from freegames import floor, vector
 
 state = {'score': 0}
@@ -130,17 +120,24 @@ def move():
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
 
+
     for point, course in ghosts:
         if valid(point + course):
             point.move(course)
         else:
-            options = [
+            dx, dy = pacman.x - point.x, pacman.y - point.y
+            optionsx = [
                 vector(5, 0),
                 vector(-5, 0),
+            ]
+            optionsy = [
                 vector(0, 5),
                 vector(0, -5),
             ]
-            plan = choice(options)
+            if abs(dx)>abs(dy):
+                plan = choice(optionsx)
+            else:
+                plan = choice(optionsy)
             course.x = plan.x
             course.y = plan.y
 
