@@ -5,25 +5,25 @@ from random import choice, randrange #importamos choice y randrange de random
 from freegames import square, vector #importamos vector y square de freegames
 
 food = vector(0, 0) #definimos la posición inicial de la comida
-snake = [vector(10, 0)] #definimos la posicion inicial de la serpiente
-aim = vector(0, -10) #definimos el vector a donde apunta inicialmente la serpieente
+snake = [vector(10, 0)] #definimos la posición inicial de la serpiente
+aim = vector(0, -10) #definimos el vector a donde apunta inicialmente la serpiente
 
 """Colores aleatorios sin repetirse"""
 colors = ['black', 'cyan', 'magenta', 'yellow', 'green']#definimos los colores
 rand_colors_1 = choice(colors) #escoge un color al azar para el cuerpo de la serpiente
-colors.remove(rand_colors_1)#quita el color que escogio antes para que no se repitan los colores de la comida y la serpiente
+colors.remove(rand_colors_1)#quita el color que escogió antes para que no se repitan los colores de la comida y la serpiente
 rand_colors_2 = choice(colors)#escoge un color al azar de los restantes para la comida
 
-"""Funcion que cambia la direccion de la serpiente"""
+"""Función que cambia la dirección de la serpiente"""
 def change(x, y):
     aim.x = x
     aim.y = y
 
-"""Funcion que checa si la cabeza de la serpiente esta dentro de los limites"""
+"""Función que checa si la cabeza de la serpiente está dentro de los límites"""
 def inside(head):
     return -200 < head.x < 190 and -200 < head.y < 190
 
-"""Funcion que mueve la comida aleatoriamente por la pantalla"""
+"""Función que mueve la comida aleatoriamente por la pantalla"""
 def move_food():
     #espacio donde se mueve constantemente la comida
     food.x += randrange(-1, 2, 1) * 10
@@ -35,7 +35,7 @@ def move_food():
 
     ontimer(move_food, 100) # Se llama a la función move_food cada 100 milisegundos
 
-"""Funcion que mueve la serpiente hacia adelante"""
+"""Función que mueve la serpiente hacia adelante"""
 def move():
     # Se crea una copia de la cabeza de la serpiente
     head = snake[-1].copy()

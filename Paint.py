@@ -3,15 +3,15 @@
 from turtle import * #Importamos turtle
 from freegames import vector #importamos vector de freegames
 
-"""Funcion que dibuja la linea"""
+"""Función que dibuja la línea"""
 def line(start, end):
     """Draw line from start to end."""
     up() #Levantamos la tortuga
-    goto(start.x, start.y) #Es el punto del que comienza la linea
+    goto(start.x, start.y) #Es el punto del que comienza la línea
     down() #Bajamos la tortuga
-    goto(end.x, end.y) #Es el punto en el que termina la linea 
+    goto(end.x, end.y) #Es el punto en el que termina la línea 
 
-"""Funcion que dibuja el cuadrado"""
+"""Función que dibuja el cuadrado"""
 def square(start, end):
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
@@ -25,37 +25,37 @@ def square(start, end):
 
     end_fill() #terminamos de rellenar la figura
 
-"""Funcion que dibuja el circulo"""
+"""Función que dibuja el círculo"""
 def cir(start, end):
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
     begin_fill() #comenzamos a rellenar la figura
-    r = (end.x-start.x) #calculamos el radio que va a tener el circulo
-    circle(r) #Dibuja el circulo utilizando el radio ya calculado
+    r = (end.x-start.x) #calculamos el radio que va a tener el círculo
+    circle(r) #Dibuja el círculo utilizando el radio ya calculado
     end_fill() #terminamos de rellenar la figura
 
-"""Funcion que dibuja el rectangulo"""
+"""Función que dibuja el rectángulo"""
 def rectangle(start, end):
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
     begin_fill() #comenzamos a rellenar la figura
-    """Ciclo for que dibuja el rectangulo"""
+    """Ciclo for que dibuja el rectángulo"""
     for count in range(2):
-        forward(end.x - start.x) #Para avanzar la distancia de las lineas horizontales
+        forward(end.x - start.x) #Para avanzar la distancia de las líneas horizontales
         left(90) #Gira 90 grados a la izquierda
-        forward(end.y - start.y) #Para avanzar la distancia de las lineas verticales
+        forward(end.y - start.y) #Para avanzar la distancia de las líneas verticales
         left(90) #Gira 90 grados a la izquierda
     end_fill() #terminamos de rellenar la figura
 
-"""Funcion que dibuja el triangulo"""
+"""Funcion que dibuja el triángulo"""
 def triangle(start, end):
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
     begin_fill() #comenzamos a rellenar la figura
-    """Ciclo for que dibuja el triangulo"""
+    """Ciclo for que dibuja el triángulo"""
     for i in range(3):
         forward(end.x - start.x) #Para avanzar la distancia de los lados del cuadrado
         left(120) #Gira 120 grados a la izquierda
@@ -91,9 +91,9 @@ onkey(lambda: color('blue'), 'B') #Color azul con la tecla B
 onkey(lambda: color('red'), 'R') #Color rojo con la tecla R
 onkey(lambda: color('magenta'), 'M') #Color magenta con la tecla M
 """Figuras con sus respectivas teclas"""
-onkey(lambda: store('shape', line), 'l') #Linea con tecla l
+onkey(lambda: store('shape', line), 'l') #Línea con tecla l
 onkey(lambda: store('shape', square), 's') #Cuadrado con tecla s
-onkey(lambda: store('shape', cir), 'c') #Circulo con tecla c
-onkey(lambda: store('shape', rectangle), 'r') #Rectangulo con tecla r
-onkey(lambda: store('shape', triangle), 't') #Triangulo con tecla t
+onkey(lambda: store('shape', cir), 'c') #Círculo con tecla c
+onkey(lambda: store('shape', rectangle), 'r') #Rectángulo con tecla r
+onkey(lambda: store('shape', triangle), 't') #Triángulo con tecla t
 done()
