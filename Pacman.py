@@ -64,7 +64,7 @@ def square(x, y):
 
     path.end_fill()
 
-"""Funcion que regresa offset de un point en los tiles."""
+"""Funcion que regresa offset de un point en los tiles"""
 def offset(point):
     x = (floor(point.x, 20) + 200) / 20
     y = (180 - floor(point.y, 20)) / 20

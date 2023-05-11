@@ -35,3 +35,5 @@ Memory:
     3. Centramos los dígitos en los cuadros.
     4. Hicimos como un elemento de innovación al juego, que en lugar de números se usaran emojis para que al jugador le 
     ayude a recordar mejor las parejas.
+
+Para correr los juegos, solo hay que usar: python "nombre del archivo"

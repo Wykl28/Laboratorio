@@ -1,9 +1,9 @@
 """Actividad 5: Memory"""
 
-from random import *
-from turtle import *
+from random import * #Importamos random
+from turtle import * #Importamos turtle
 
-from freegames import path
+from freegames import path #Importamos path de freegames
 
 car = path('car.gif') # Se establece la ruta de la imagen del carro
 tiles = ['\U0001F600','\U0001F603','\U0001F604','\U0001F601',
@@ -59,7 +59,7 @@ def tap(x, y):
         state['mark'] = None
 
 def show_victory_message():
-    """SMuestra un mensaje de victoria en el centro de la pantalla."""
+    """Muestra un mensaje de victoria en el centro de la pantalla."""
     message_turtle = Turtle()
     message_turtle.hideturtle()
     message_turtle.penup()
@@ -68,7 +68,7 @@ def show_victory_message():
     message_turtle.write("¡Victoria!", align="center", font=("Arial", 48, "bold"))
 
 def draw():
-    """Dibula la imagen y los tiles."""
+    """Dibuja la imagen y los tiles."""
     clear() # Borra la pantalla
     goto(0, 0) # Se mueve al centro
     shape(car) # Asigna la imagen del carro
@@ -99,17 +99,17 @@ def draw():
     up()
     goto(220, -220)
     color('red')
-    write(f'Taps: {taps}', font=('Arial', 16, 'normal',)) # Escribe el numero de taps en la pantalla
+    write(f'Taps: {taps}', font=('Arial', 16, 'normal',)) # Escribe el número de taps en la pantalla
 
     update() # Actualiza la pantalla
     ontimer(draw, 100)
 
 
 shuffle(tiles) # Mezcla las fichas
-setup(650, 650, 370, 0) # Establece las proporciines de la pantalla 
+setup(650, 650, 370, 0) # Establece las proporciones de la pantalla 
 addshape(car) # Agrega la imagen del carro
 hideturtle()
-tracer(False) # Desactiva la animacion
+tracer(False) # Desactiva la animación
 onscreenclick(tap) 
 draw()
 done() # Finaliza el juego
