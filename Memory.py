@@ -9,7 +9,7 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
-
+taps=0
 
 def square(x, y):
     """Draw white square with black outline at (x, y)."""
@@ -36,6 +36,8 @@ def xy(count):
 
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
+    global taps
+    taps += 1
     spot = index(x, y)
     mark = state['mark']
 
@@ -46,6 +48,14 @@ def tap(x, y):
         hide[mark] = False
         state['mark'] = None
 
+def show_victory_message():
+    """Show a victory message in the center of the screen."""
+    message_turtle = Turtle()
+    message_turtle.hideturtle()
+    message_turtle.penup()
+    message_turtle.goto(0, 0)
+    message_turtle.color('green')
+    message_turtle.write("¡Victoria!", align="center", font=("Arial", 48, "bold"))
 
 def draw():
     """Draw image and tiles."""
@@ -54,10 +64,18 @@ def draw():
     shape(car)
     stamp()
 
+    numero_destapados=0
+
     for count in range(64):
         if hide[count]:
             x, y = xy(count)
             square(x, y)
+        else:
+            numero_destapados +=1
+    
+    if numero_destapados == 64:
+        ontimer(show_victory_message, 500)
+        pass
 
     mark = state['mark']
 
@@ -68,12 +86,17 @@ def draw():
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
+    up()
+    goto(180, -180)
+    color('red')
+    write(f'Taps: {taps}', font=('Arial', 16, 'normal'))
+
     update()
     ontimer(draw, 100)
 
 
 shuffle(tiles)
-setup(420, 420, 370, 0)
+setup(600, 550, 370, 0)
 addshape(car)
 hideturtle()
 tracer(False)
