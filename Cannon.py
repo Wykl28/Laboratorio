@@ -10,7 +10,7 @@ ball = vector(-200, -200) # Posición inicial de la pelota
 speed = vector(0, 0) # Velocidad inicial de la pelota
 targets = [] # Lista vacía de objetivos
 
-"""Funcion para responder al tap"""
+"""Función para responder al tap"""
 def tap(x, y):
     if not inside(ball):
         ball.x = -199
@@ -22,7 +22,7 @@ def tap(x, y):
 def inside(xy):
     return -200 < xy.x < 200 and -200 < xy.y < 200
 
-"""Funcion para dibujar la pelota y los objetivos"""
+"""Función para dibujar la pelota y los objetivos"""
 def draw():
     clear()
 
