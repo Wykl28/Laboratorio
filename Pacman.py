@@ -1,21 +1,33 @@
 """Actividad 3: Packman"""
 
-from random import choice
-from turtle import *
-from freegames import floor, vector
+from random import choice #importamos choice de random
+from turtle import * #Importamos turtle
+from freegames import floor, vector #importamos vector y floor de freegames
 
+# Creamos un diccionario llamado state con una llave score cuyo valor inicial es 0.
 state = {'score': 0}
+
+# Creamos una tortuga invisible llamada path para que dibuje el camino que seguirán los fantasmas.
 path = Turtle(visible=False)
+
+# Creamos una tortuga invisible llamada writer para que escriba el puntaje del jugador.
 writer = Turtle(visible=False)
+
+# Creamos un vector llamado aim que determina la dirección hacia la que se mueve Pac-Man inicialmente.
 aim = vector(5, 0)
+
+# Creamos un vector llamado pacman que determina la posición inicial de Pac-Man en el juego.
 pacman = vector(-40, -80)
+
+# Creamos una lista llamada ghosts que contiene cuatro listas, cada una con dos vectores: el primer vector determina la posición inicial del fantasma y el segundo vector determina la dirección hacia la que se mueve inicialmente.
 ghosts = [
     [vector(-180, 160), vector(10, 0)],
     [vector(-180, -160), vector(0, 10)],
     [vector(100, 160), vector(0, -10)],
     [vector(100, -160), vector(-10, 0)],
 ]
-# fmt: off
+
+# Creamos una lista llamada tiles que representa el mapa del juego, donde 0 indica una casilla vacía y 1 indica una casilla con un punto.
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
@@ -38,11 +50,9 @@ tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ]
-# fmt: on
 
-
+"""Function that draws square using path at (x, y)."""
 def square(x, y):
-    """Draw square using path at (x, y)."""
     path.up()
     path.goto(x, y)
     path.down()
@@ -54,17 +64,15 @@ def square(x, y):
 
     path.end_fill()
 
-
+"""Function that returns offset of point in tiles."""
 def offset(point):
-    """Return offset of point in tiles."""
     x = (floor(point.x, 20) + 200) / 20
     y = (180 - floor(point.y, 20)) / 20
     index = int(x + y * 20)
     return index
 
-
+"""Function that returns True if point is valid in tiles."""
 def valid(point):
-    """Return True if point is valid in tiles."""
     index = offset(point)
 
     if tiles[index] == 0:
@@ -77,9 +85,8 @@ def valid(point):
 
     return point.x % 20 == 0 or point.y % 20 == 0
 
-
+"""Funcion que dibuja el mundousando path."""
 def world():
-    """Draw world using path."""
     bgcolor('black')
     path.color('blue')
 
@@ -96,9 +103,8 @@ def world():
                 path.goto(x + 10, y + 10)
                 path.dot(2, 'white')
 
-
+"""Funcion que mueve el pacman y todos los fantasmas."""
 def move():
-    """Move pacman and all ghosts."""
     writer.undo()
     writer.write(state['score'])
 
@@ -153,25 +159,27 @@ def move():
 
     ontimer(move, 100)
 
-
+"""Funcion que cambia el aim del pacman si es posible."""
 def change(x, y):
-    """Change pacman aim if valid."""
     if valid(pacman + vector(x, y)):
         aim.x = x
         aim.y = y
 
 
-setup(420, 420, 370, 0)
+setup(420, 420, 370, 0) # Configuración inicial de la pantalla
 hideturtle()
 tracer(False)
 writer.goto(160, 160)
 writer.color('white')
 writer.write(state['score'])
+# Se definen las teclas para cambiar la dirección del pacman
 listen()
 onkey(lambda: change(5, 0), 'Right')
 onkey(lambda: change(-5, 0), 'Left')
 onkey(lambda: change(0, 5), 'Up')
 onkey(lambda: change(0, -5), 'Down')
+#se inicia el mundo 
 world()
+# Se inicia el movimiento del pacman y los fantasmas
 move()
 done()
