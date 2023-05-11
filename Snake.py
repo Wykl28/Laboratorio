@@ -1,17 +1,7 @@
-"""Snake, classic arcade game.
+"""Actividad 2: Snake"""
 
-Exercises
-
-1. How do you make the snake faster or slower?
-2. How can you make the snake go around the edges?
-3. How would you move the food?
-4. Change the snake to respond to mouse clicks.
-"""
-
-from random import randrange
 from turtle import *
-from random import choice
-
+from random import choice, randrange
 from freegames import square, vector
 
 food = vector(0, 0)
@@ -19,9 +9,9 @@ snake = [vector(10, 0)]
 aim = vector(0, -10)
 
 # Colores aleatorios sin repetirse
-colors = ['black','cyan','magenta','yellow','green']
+colors = ['black', 'cyan', 'magenta', 'yellow', 'green']
 rand_colors_1 = choice(colors)
-colors_2 = colors.remove(rand_colors_1)
+colors.remove(rand_colors_1)
 rand_colors_2 = choice(colors)
 
 
@@ -34,6 +24,19 @@ def change(x, y):
 def inside(head):
     """Return True if head inside boundaries."""
     return -200 < head.x < 190 and -200 < head.y < 190
+
+
+def move_food():
+    """Move food location randomly."""
+    food.x += randrange(-1, 2, 1) * 10
+    food.y += randrange(-1, 2, 1) * 10
+
+    if not inside(food):
+        food.x = 0
+        food.y = 0
+
+    ontimer(move_food, 100)
+
 
 def move():
     """Move snake forward one segment."""
@@ -49,16 +52,12 @@ def move():
 
     if head == food:
         print('Snake:', len(snake))
-        food.x = randrange(-15, 15) * 10
-        food.y = randrange(-15, 15) * 10
+        move_food()
     else:
-        food.x = randrange(-1, 1) * 10
-        food.y = randrange(-1, 1) * 10
         snake.pop(0)
 
-
     clear()
-  
+
     for body in snake:
         square(body.x, body.y, 9, rand_colors_1)
 
@@ -75,5 +74,8 @@ onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
+
+move_food()
 move()
+
 done()
