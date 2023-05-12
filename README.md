@@ -37,3 +37,4 @@ Memory:
     ayude a recordar mejor las parejas.
 
 Para correr los juegos, solo hay que usar: python "nombre del archivo"
+Ademas, se debe de realizar la instalacion de la libreria freegames del enlace: https://grantjenks.com/docs/freegames/
