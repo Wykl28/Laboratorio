@@ -10,20 +10,20 @@ ball = vector(-200, -200) # Posición inicial de la pelota
 speed = vector(0, 0) # Velocidad inicial de la pelota
 targets = [] # Lista vacía de objetivos
 
-"""Función para responder al tap"""
 def tap(x, y):
+    """Función para responder al tap"""
     if not inside(ball):
         ball.x = -199
         ball.y = -199
         speed.x = (x + 200) / 16
         speed.y = (y + 200) / 16
 
-"""Función que determina si un punto está dentro de la pantalla"""
 def inside(xy):
+    """Función que determina si un punto está dentro de la pantalla"""
     return -200 < xy.x < 200 and -200 < xy.y < 200
 
-"""Función para dibujar la pelota y los objetivos"""
 def draw():
+    """Función para dibujar la pelota y los objetivos"""
     clear()
 
     for target in targets:
@@ -38,8 +38,8 @@ def draw():
 
     update()
 
-"""Función para mover la pelota y los objetivos"""
 def move():
+    """Función para mover la pelota y los objetivos"""
     if randrange(40) == 0:
         # Cada cierto tiempo se agrega un nuevo objetivo
         y = randrange(-150, 150)

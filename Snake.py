@@ -14,17 +14,17 @@ rand_colors_1 = choice(colors) #escoge un color al azar para el cuerpo de la ser
 colors.remove(rand_colors_1)#quita el color que escogió antes para que no se repitan los colores de la comida y la serpiente
 rand_colors_2 = choice(colors)#escoge un color al azar de los restantes para la comida
 
-"""Función que cambia la dirección de la serpiente"""
 def change(x, y):
+    """Función que cambia la dirección de la serpiente"""
     aim.x = x
     aim.y = y
 
-"""Función que checa si la cabeza de la serpiente está dentro de los límites"""
 def inside(head):
+    """Función que checa si la cabeza de la serpiente está dentro de los límites"""
     return -200 < head.x < 190 and -200 < head.y < 190
 
-"""Función que mueve la comida aleatoriamente por la pantalla"""
 def move_food():
+    """Función que mueve la comida aleatoriamente por la pantalla"""
     #espacio donde se mueve constantemente la comida
     food.x += randrange(-1, 2, 1) * 10
     food.y += randrange(-1, 2, 1) * 10
@@ -35,8 +35,8 @@ def move_food():
 
     ontimer(move_food, 100) # Se llama a la función move_food cada 100 milisegundos
 
-"""Función que mueve la serpiente hacia adelante"""
 def move():
+    """Función que mueve la serpiente hacia adelante"""
     # Se crea una copia de la cabeza de la serpiente
     head = snake[-1].copy()
     # Se mueve la cabeza de la serpiente en la dirección definida anteriormente por "aim"

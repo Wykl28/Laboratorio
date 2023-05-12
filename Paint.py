@@ -3,16 +3,15 @@
 from turtle import * #Importamos turtle
 from freegames import vector #importamos vector de freegames
 
-"""Función que dibuja la línea"""
 def line(start, end):
-    """Draw line from start to end."""
+    """Función que dibuja la línea"""
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto del que comienza la línea
     down() #Bajamos la tortuga
     goto(end.x, end.y) #Es el punto en el que termina la línea 
 
-"""Función que dibuja el cuadrado"""
 def square(start, end):
+    """Función que dibuja el cuadrado"""
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
@@ -25,8 +24,8 @@ def square(start, end):
 
     end_fill() #terminamos de rellenar la figura
 
-"""Función que dibuja el círculo"""
 def cir(start, end):
+    """Función que dibuja el círculo"""
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
@@ -35,8 +34,8 @@ def cir(start, end):
     circle(r) #Dibuja el círculo utilizando el radio ya calculado
     end_fill() #terminamos de rellenar la figura
 
-"""Función que dibuja el rectángulo"""
 def rectangle(start, end):
+    """Función que dibuja el rectángulo"""
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
@@ -49,8 +48,8 @@ def rectangle(start, end):
         left(90) #Gira 90 grados a la izquierda
     end_fill() #terminamos de rellenar la figura
 
-"""Funcion que dibuja el triángulo"""
 def triangle(start, end):
+    """Funcion que dibuja el triángulo"""
     up() #Levantamos la tortuga
     goto(start.x, start.y) #Es el punto en el que comienza
     down() #Bajamos la tortuga
@@ -61,8 +60,8 @@ def triangle(start, end):
         left(120) #Gira 120 grados a la izquierda
     end_fill() #terminamos de rellenar la figura
 
-"""Funcion que agarra las coordenadas x e y"""
 def tap(x, y):
+    """Funcion que agarra las coordenadas x e y"""
     start = state['start']
 
     if start is None:
@@ -73,8 +72,8 @@ def tap(x, y):
         shape(start, end)
         state['start'] = None
 
-"""Funcion almacena todo"""
 def store(key, value):
+    """Funcion almacena todo"""
     state[key] = value
 
 
